@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="40d8a0a2bfa44a16b680147711cbbae0" Name="Diagram1" ZoomLevel="61">
+        <EntityTypeShape EntityType="Model.COACH" Width="1.5" PointX="10.999913105275441" PointY="0.3331996949078514" />
+        <EntityTypeShape EntityType="Model.MONTLYPAYMENT" Width="1.5" PointX="0.5" PointY="7.5" />
+        <EntityTypeShape EntityType="Model.PERSON" Width="1.5" PointX="1.2744109114978512" PointY="0.32158772662355922" />
+        <EntityTypeShape EntityType="Model.STUDENT" Width="1.5" PointX="9.125" PointY="5.75" />
+        <EntityTypeShape EntityType="Model.STUDENT_TRAINING" Width="1.5" PointX="4.1401920840796977" PointY="1.6544228650882946" />
+        <EntityTypeShape EntityType="Model.TRAINING" Width="1.5" PointX="6.625" PointY="4.125" />
+        <AssociationConnector Association="Model.FK_COACH_INHERITAN_PERSON" />
+        <AssociationConnector Association="Model.FK_TRAINING_RELATIONS_COACH" />
+        <AssociationConnector Association="Model.FK_MONTLYPA_RELATIONS_STUDENT" />
+        <AssociationConnector Association="Model.FK_STUDENT_INHERITAN_PERSON" />
+        <AssociationConnector Association="Model.FK_RELATION_RELATIONS_STUDENT" />
+        <AssociationConnector Association="Model.FK_RELATION_RELATIONS_TRAINING" />
+        <EntityTypeShape EntityType="Model.sysdiagram" Width="1.5" PointX="0.23358473751395231" PointY="3.9154168236606832" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

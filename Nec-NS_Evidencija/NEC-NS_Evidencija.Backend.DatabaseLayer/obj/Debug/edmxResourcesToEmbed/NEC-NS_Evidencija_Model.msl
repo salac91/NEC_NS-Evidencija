@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="MyEntities">
+    <EntitySetMapping Name="COACHes">
+      <EntityTypeMapping TypeName="Model.COACH">
+        <MappingFragment StoreEntitySet="COACH">
+          <ScalarProperty Name="PAYOFF" ColumnName="PAYOFF" />
+          <ScalarProperty Name="PAYMENTRATE" ColumnName="PAYMENTRATE" />
+          <ScalarProperty Name="PAYOFFRATE" ColumnName="PAYOFFRATE" />
+          <ScalarProperty Name="COACH_INTERNAL_ID" ColumnName="COACH_INTERNAL_ID" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MONTLYPAYMENTS">
+      <EntityTypeMapping TypeName="Model.MONTLYPAYMENT">
+        <MappingFragment StoreEntitySet="MONTLYPAYMENTS">
+          <ScalarProperty Name="MONTLYPAYMENT_INTERNAL_ID" ColumnName="MONTLYPAYMENT_INTERNAL_ID" />
+          <ScalarProperty Name="ENDDATE" ColumnName="ENDDATE" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+          <ScalarProperty Name="MONTLYPAYMENT_ID" ColumnName="MONTLYPAYMENT_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="People">
+      <EntityTypeMapping TypeName="Model.PERSON">
+        <MappingFragment StoreEntitySet="PERSON">
+          <ScalarProperty Name="TELEPHONE" ColumnName="TELEPHONE" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+          <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENTs">
+      <EntityTypeMapping TypeName="Model.STUDENT">
+        <MappingFragment StoreEntitySet="STUDENT">
+          <ScalarProperty Name="ToPay" ColumnName="ToPay" />
+          <ScalarProperty Name="JMBG" ColumnName="JMBG" />
+          <ScalarProperty Name="COUNTRY" ColumnName="COUNTRY" />
+          <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+          <ScalarProperty Name="BORN_DATE" ColumnName="BORN_DATE" />
+          <ScalarProperty Name="PARENTS_TELEPHONE" ColumnName="PARENTS_TELEPHONE" />
+          <ScalarProperty Name="PARENTS_MAIL" ColumnName="PARENTS_MAIL" />
+          <ScalarProperty Name="PARENT_LAST_NAME" ColumnName="PARENT_LAST_NAME" />
+          <ScalarProperty Name="PARENT_FIRST_NAME" ColumnName="PARENT_FIRST_NAME" />
+          <ScalarProperty Name="IMAGE_URL" ColumnName="IMAGE_URL" />
+          <ScalarProperty Name="DISCOUNT" ColumnName="DISCOUNT" />
+          <ScalarProperty Name="PAYMENTTYPE" ColumnName="PAYMENTTYPE" />
+          <ScalarProperty Name="STUDENT_INTERNAL_ID" ColumnName="STUDENT_INTERNAL_ID" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="STUDENT_TRAINING">
+      <EntityTypeMapping TypeName="Model.STUDENT_TRAINING">
+        <MappingFragment StoreEntitySet="STUDENT_TRAINING">
+          <ScalarProperty Name="RELATIONSHIP" ColumnName="RELATIONSHIP" />
+          <ScalarProperty Name="TRAININGQUALITY" ColumnName="TRAININGQUALITY" />
+          <ScalarProperty Name="AMOUNT" ColumnName="AMOUNT" />
+          <ScalarProperty Name="PAYMENTTYPE" ColumnName="PAYMENTTYPE" />
+          <ScalarProperty Name="TRAINING_ID" ColumnName="TRAINING_ID" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TRAININGs">
+      <EntityTypeMapping TypeName="Model.TRAINING">
+        <MappingFragment StoreEntitySet="TRAINING">
+          <ScalarProperty Name="RELATIONSHIP" ColumnName="RELATIONSHIP" />
+          <ScalarProperty Name="TRAINING_QUALITY" ColumnName="TRAINING_QUALITY" />
+          <ScalarProperty Name="NOTES" ColumnName="NOTES" />
+          <ScalarProperty Name="DURATION" ColumnName="DURATION" />
+          <ScalarProperty Name="STARTDATE" ColumnName="STARTDATE" />
+          <ScalarProperty Name="TRAININGTHEME" ColumnName="TRAININGTHEME" />
+          <ScalarProperty Name="TRAININGTYPE" ColumnName="TRAININGTYPE" />
+          <ScalarProperty Name="TRAINING_INTERNAL_ID" ColumnName="TRAINING_INTERNAL_ID" />
+          <ScalarProperty Name="PERSON_ID" ColumnName="PERSON_ID" />
+          <ScalarProperty Name="TRAINING_ID" ColumnName="TRAINING_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

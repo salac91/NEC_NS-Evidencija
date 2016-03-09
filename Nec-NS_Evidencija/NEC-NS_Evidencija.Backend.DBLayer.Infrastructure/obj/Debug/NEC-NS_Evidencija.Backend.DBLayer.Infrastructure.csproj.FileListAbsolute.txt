@@ -1,0 +1,14 @@
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\obj\Debug\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure.dll.config
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure.pdb
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\EntityFramework.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\log4net.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.pdb
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\EntityFramework.xml
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\bin\Debug\log4net.xml
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\obj\Debug\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure\obj\Debug\NEC-NS_Evidencija.Backend.DBLayer.Infrastructure.pdb

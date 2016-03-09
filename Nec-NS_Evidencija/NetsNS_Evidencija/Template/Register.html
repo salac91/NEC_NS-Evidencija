@@ -1,0 +1,102 @@
+﻿    
+<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+
+              <div class="border-color:#9BCEEE">
+                   <h3 style="color:#565656;"><b><i class="fa fa-user"></i> Registovani Korisnici</b></h3>  <br />
+              </div>
+
+              <form>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                            <input type="text" class="form-control" placeholder="Traži korisnika" data-ng-model="searchAccount">
+                        </div>      
+                    </div>
+             </form>
+
+              <div class="row">
+               <div class="col-md-12">
+                <div class="table-responsive">
+                 <table class="table table-striped" style="border: 1px groove; border-color:#C2C2C2"">
+                   <thead>
+                     <tr style="background-color:#96C2EE">
+                        <td><b data-ng-click="sortType = 'UserName'; sortReverse = !sortReverse">
+                             Korisničko ime 
+                             <span data-ng-show="sortType == 'UserName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'UserName' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                         <td></td>                      
+                          <td><b data-ng-click="sortType = 'Role'; sortReverse = !sortReverse">
+                             Uloga 
+                             <span data-ng-show="sortType == 'Role' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Role' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>                 
+                         <td></td>
+                         <td></td>
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="displayUserProfileModel in model | orderBy:sortType:sortReverse | filter:searchAccount">
+                         <td>{{displayUserProfileModel.UserName}}</td>
+                         <td></td>
+                         <td>{{displayUserProfileModel.Role}}</td>
+                         <td></td>
+                         <td><button type="submit" class="btn btn-info" data-ng-click="deleteAccount(displayUserProfileModel.UserName)">Ukloni</button></td>
+                     </tr>                
+                   </tbody>
+               </table>                  
+              </div>
+             </div>
+            </div>
+
+                <div class="row">
+                 <div class="col-md-12">
+                   <div class="form-bottom" style="background-color:#FCFFFF; border: 1px groove; border-color:#C2C2C2"">
+                    <form class="form-horizontal" role="form">                      
+                        <div class="form-group">
+                            <label class="control-label col-sm-1" for="Korisničko_ime">Korisnik:</label>
+                             <div class="col-sm-5">         
+                                <input type="text" class="form-control" placeholder="Korisničko ime"  data-ng-model="new.RegisterModel.UserName"/>
+                             </div>
+                            <label class="control-label col-sm-1" for="Lozinka">Lozinka:</label>
+                             <div class="col-sm-5">         
+                                <input type="password" class="form-control" placeholder="Lozinka"  data-ng-model="new.RegisterModel.Password"/>
+                             </div>
+                        </div>
+                         <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Potvrdi_lozinku">Potvrdi:</label>
+                             <div class="col-sm-5"> 
+                                <input type="password" class="form-control" placeholder="Potvrdi lozinku"  data-ng-model="new.RegisterModel.ConfirmPassword"/>
+                             </div>
+                             <label class="control-label col-sm-1" for="Uloge">Uloge:</label>
+                             <div class="col-sm-5"> 
+                                <select class="form-control" data-ng-model="new.RegisterModel.Role">  
+                                    <optgroup style="font-size:18px;" label="Uloge">                            
+                                         <option value="Coach">Trener</option>
+                                         <option value="Student" selected="selected">Igrač</option>
+                                    </optgroup>
+                                 </select>
+                             </div>
+                         </div>                                            
+                   </form>
+                  </div>
+               </div>
+              </div>
+                 <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                        <button type="submit" class="btn btn-primary" data-ng-click="createNewAccount()">Dodaj</button>   
+                                      </div>                         
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+        </div>
+    </div>
+ </div>

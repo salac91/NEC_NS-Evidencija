@@ -1,0 +1,128 @@
+﻿<div class="top-content" data-ng-controller="StudentReportCtrl">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+
+              <div style="background-color:#FFFFFF;">
+                   <h2 style="color:#565656;"><b>Izveštaj za igrače</b></h2> <br />
+              </div>
+        
+                <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#FCFFFF; border: 1px groove; border-color:#C2C2C2">
+                             <form class="form-horizontal" role="form">
+
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-1" for="Igrač">Igrač:</label>
+                                    <div class="col-sm-4">                           
+                                        <select class="form-control" data-ng-model="StudentForReport">   
+                                            <optgroup style="font-size:18px;" label="Igrači">                           
+                                                 <option data-ng-repeat="student in model" value={{student.Student_Internal_Id}}>{{student.FirstName}} {{student.LastName}}</option>
+                                             </optgroup>
+                                         </select>
+                                     </div> 
+                                 </div>
+                                  <div class="form-group"> 
+                                    <label class="control-label col-sm-1" for="Od">Od:</label>
+                                     <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="31"  data-ng-model="day1"/>
+                                     </div>
+                                    <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="12"  data-ng-model="month1"/>
+                                     </div>
+                                    <div class="col-sm-2"> 
+                                        <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year1"/>
+                                     </div>
+                                     <div class="col-sm-1"> 
+                                     </div>
+
+                                    <label class="control-label col-sm-1" for="Do">Do:</label>
+                                     <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="31"  data-ng-model="day2"/>
+                                     </div>
+                                    <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="12"  data-ng-model="month2"/>
+                                     </div>
+                                    <div class="col-sm-2"> 
+                                        <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year2"/>
+                                     </div>
+                                </div>                                                              
+                              </form>
+                         </div>
+                     </div>
+               </div>
+                <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                         <p><a class="btn btn-primary" data-ng-mouseover="prepareReportModel1()" href="@Url.Action("ExportStudentReport","Report")?id={{ReportModel1.Id}}&fromDate={{ReportModel1.FromDate}}&toDate={{ReportModel1.ToDate}}&name={{ReportModel1.Name}}">Napravi izveštaj</a></p>                                        
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+
+                <div style="background-color:#FFFFFF;">
+                   <h2 style="color:#565656;"><b>Odrađeni treninzi</b></h2> <br />
+              </div>
+        
+                <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#FCFFFF; border: 1px groove; border-color:#C2C2C2">
+                             <form class="form-horizontal" role="form">
+
+                                 <div class="form-group">
+                                    <label class="control-label col-sm-1" for="Igrač">Igrač:</label>
+                                    <div class="col-sm-4">                           
+                                        <select class="form-control" data-ng-model="StudentForReport2">   
+                                            <optgroup style="font-size:18px;" label="Igrači">                           
+                                                 <option data-ng-repeat="student in model" value={{student.Student_Internal_Id}}>{{student.FirstName}} {{student.LastName}}</option>
+                                             </optgroup>
+                                         </select>
+                                     </div> 
+                                 </div>
+                                  <div class="form-group"> 
+                                    <label class="control-label col-sm-1" for="Od">Od:</label>
+                                     <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="31"  data-ng-model="day3"/>
+                                     </div>
+                                    <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="12"  data-ng-model="month3"/>
+                                     </div>
+                                    <div class="col-sm-2"> 
+                                        <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year3"/>
+                                     </div>
+                                     <div class="col-sm-1"> 
+                                     </div>
+
+                                    <label class="control-label col-sm-1" for="Do">Do:</label>
+                                     <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="31"  data-ng-model="day4"/>
+                                     </div>
+                                    <div class="col-sm-1"> 
+                                        <input type="number" class="form-control" min="1" max="12"  data-ng-model="month4"/>
+                                     </div>
+                                    <div class="col-sm-2"> 
+                                        <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year4"/>
+                                     </div>
+                                </div>                                                              
+                              </form>
+                         </div>
+                     </div>
+               </div>
+                <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                         <p><a class="btn btn-primary" data-ng-mouseover="prepareReportModel2()" href="@Url.Action("ExportStudentTrainingReport","Report")?id={{ReportModel2.Id}}&fromDate={{ReportModel2.FromDate}}&toDate={{ReportModel2.ToDate}}">Napravi izveštaj</a></p>                                        
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+        </div>
+    </div>
+ </div>

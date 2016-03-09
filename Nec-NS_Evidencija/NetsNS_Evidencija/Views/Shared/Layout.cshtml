@@ -1,0 +1,119 @@
+﻿<html data-ng-app="app">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>NEC-NS Evidencija</title>
+    <script type="text/javascript" src="~/Scripts/jquery-1.11.1.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/angular.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/ng-file-upload-shim.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/ng-file-upload.min.js"></script> 
+    <script type="text/javascript" src="~/Scripts/angular-route.js"></script>
+    <script type="text/javascript" src="~/Scripts/scripts.js"></script>
+    <script type="text/javascript" src="~/Scripts/placeholder.js"></script>
+    <script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+    <script type="text/javascript" src="~/Scripts/ui-bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-1.1.2.js"></script>
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+       
+    <style>
+        .selected {
+            background-color:#ffffb3;
+            color:black;
+        }
+
+        td {
+             color:#666666;
+        }
+
+        label {
+             color:#666666;
+        }        
+        .navbar .container { min-height: 83px; }
+
+
+        .navbar-fixed-top {
+              position:static;
+              margin-bottom:20px;
+         }
+        body {
+              padding-top: 50px;
+        }
+
+       .borderless tr td {
+              border: none !important;
+              padding: 10px !important;
+        }
+
+        hr{
+            color: #565656;
+            background-color: #565656;
+        }
+    </style>
+</head>
+<body style="background-color:#ffffff;">
+  <div class="container-fluid" data-ng-controller="HomeCtrl">
+     <div class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:#4d88ff;">
+         <div class="container">
+             <div class="navbar-header">
+                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                     <span class="sr-only">Toggle navigation</span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                 </button>
+                 <a class="navbar-brand"></a><h3 class="navbar-text" style="color:#ffffff;">NEC-NS-Evidencija</h3>
+             </div>
+             <div class="navbar-collapse collapse" >
+                 <ul class="nav navbar-nav navbar-right">          
+                     <li onclick="$('.navbar-toggle').click()" data-ng-if="role == 'Mannager'"><a href="#!/register"><h4 style="color:#FFFFFF;">Novi Korisnik</h4></a></li>
+                     <li data-ng-if="role == 'Mannager'" class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown"><h4 style="color:#FFFFFF;">Evidencija</h4>
+                          <span class="caret" style="color:#FFFFFF;"></span></a>
+                          <ul class="dropdown-menu" >
+                            <li onclick="$('.navbar-toggle').click()"><a href="#!/students"><h5 style="color:#454545;">Igrači</h5></a></li>
+                            <li onclick="$('.navbar-toggle').click()"><a href="#!/coaches"><h5 style="color:#454545;">Treneri</h5></a></li>
+                            <li onclick="$('.navbar-toggle').click()"><a href="#!/trainings"><h5 style="color:#454545;">Treninzi</h5></a></li>                                                
+                         </ul>
+                     </li>
+
+                      <li data-ng-if="role == 'Mannager'" class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown"><h4 style="color:#FFFFFF;">Plaćanja</h4>
+                          <span class="caret" style="color:#FFFFFF;"></span></a>
+                          <ul class="dropdown-menu" >                          
+                            <li onclick="$('.navbar-toggle').click()"><a href="#!/montlypayments"><h5 style="color:#454545;">Mesečna plaćanja</h5></a></li>
+                            <li onclick="$('.navbar-toggle').click()"><a href="#!/paymentPerHour"><h5 style="color:#454545;">Po satu</h5></a></li>                         
+                         </ul>
+                     </li>
+
+                     <li data-ng-if="role == 'Mannager'" class="dropdown">
+                          <a class="dropdown-toggle" data-toggle="dropdown"><h4 style="color:#FFFFFF;">Izveštaji</h4>
+                          <span class="caret" style="color:#FFFFFF;"></span></a>
+                          <ul class="dropdown-menu" > 
+                              <li onclick="$('.navbar-toggle').click()"><a href="#!/coachReport"><h5 style="color:#454545;">Treneri</h5></a></li> 
+                              <li onclick="$('.navbar-toggle').click()"><a href="#!/studentReport"><h5 style="color:#454545;">Igrači</h5></a></li>                                                          
+                         </ul>
+                     </li>
+
+                     <li data-ng-if="logedIn"><a href="#!/login" data-ng-click="logout()"><h4 style="color:#FFFFFF;">Odjava</h4></a></li>
+                 </ul>
+             </div>
+         </div>
+     </div>
+ 
+     <div class="ng-cloak" data-ng-view>
+         @RenderBody()
+     </div>
+
+      <p data-ng-if="coachReport"><a href="@Url.Action("ExportCoachReport","Report")">Izveštaj treneri</a></p>
+      <p data-ng-if="coachReport"><a href="@Url.Action("ExportStudentTrainingReport","Report")">Odrađeni treninzi</a></p>
+      <p data-ng-if="coachReport"><a href="@Url.Action("ExportStudentReport","Report")">Izveštaj igraci</a></p>
+ </div>
+    
+    @Scripts.Render("~/bundles/AngularCustom")
+    @Styles.Render("~/Content/css")
+
+</body>
+</html>

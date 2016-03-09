@@ -1,0 +1,125 @@
+﻿<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+
+              <div style="background-color:#FFFFFF;">
+                   <h3 style="color:#565656;"><b><i class="fa fa-calendar"></i>    Mesečna Plaćanja</b></h3> <br />
+              </div>
+
+              <form>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                            <input type="text" class="form-control" placeholder="Traži igrača" data-ng-model="searchStudent">
+                        </div>      
+                    </div>
+             </form>
+         
+              <div class="row">
+               <div class="col-md-12">
+                <div class="table-responsive">
+                 <table class="table table-striped" style= "border: 1px groove; border-color:#C2C2C2">
+                   <thead>
+                     <tr style="background-color:#96C2EE">
+                        <td><b data-ng-click="sortType = 'Student.FirstName'; sortReverse = !sortReverse">
+                             Igrač 
+                             <span data-ng-show="sortType == 'Student.FirstName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Student.FirstName' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'Amount'; sortReverse = !sortReverse">
+                             Iznos
+                             <span data-ng-show="sortType == 'Amount' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Amount' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                         <td><b>
+                             Od                           
+                             </b></td>
+                         <td></td>
+                          <td><b>
+                             Do                         
+                             </b></td>  
+                         <td></td>
+                         <td></td>                                             
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="montlyPayment in model | orderBy:sortType:sortReverse | filter:searchStudent" data-ng-class="{'selected':$index == selectedRow}" data-ng-click="setClickedRow($index,montlyPayment)">
+                         <td>{{montlyPayment.Student.FirstName}} {{montlyPayment.Student.LastName}}</td>
+                         <td>€ {{montlyPayment.Amount}}</td>
+                         <td>{{montlyPayment.StartDate}}</td>
+                         <td></td>
+                          <td>{{montlyPayment.EndDate}}</td>  
+                         <td></td>                      
+                         <td><button type="submit" class="btn btn-info" data-ng-click="deleteMontlyPayment(montlyPayment.MontlyPayment_Internal_Id)">Ukloni</button></td>                        
+                     </tr>                    
+                   </tbody>
+               </table>
+              </div>
+             </div>                 
+            </div>
+
+               <div class="row">
+                 <div class="col-md-12">
+                   <div class="form-bottom" style="background-color:#FCFFFF; border: 1px groove; border-color:#C2C2C2"">
+                    <form class="form-horizontal" role="form"> 
+                        <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Igrači">Igrači:</label>
+                             <div class="col-sm-4"> 
+                                <select class="form-control" data-ng-model="new.StudentForMontlyPayment">
+                                   <optgroup style="font-size:18px;" label="Igrači">
+                                     <option data-ng-repeat="student in studentsNew" value={{student.Student_Internal_Id}}>{{student.FirstName}} {{student.LastName}}</option>
+                                    </optgroup >
+                                </select>
+                            </div>
+                            <div class="col-sm-1"> 
+                            </div>
+                            <label class="control-label col-sm-1" for="Iznos">Iznos:</label>
+                             <div class="col-sm-4"> 
+                                 <input type="text" class="form-control" placeholder="Iznos"  data-ng-model="new.MontlyPayment.Amount"/>
+                             </div>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-1" for="Od">Od:</label>
+                             <div class="col-sm-1"> 
+                                <input type="number" class="form-control" min="1" max="31"  data-ng-model="day1"/>
+                             </div>
+                            <div class="col-sm-1"> 
+                                <input type="number" class="form-control" min="1" max="12"  data-ng-model="month1"/>
+                             </div>
+                            <div class="col-sm-2"> 
+                                <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year1"/>
+                             </div>
+                             <div class="col-sm-1"> 
+                             </div>
+
+                            <label class="control-label col-sm-1" for="Do">Do:</label>
+                             <div class="col-sm-1"> 
+                                <input type="number" class="form-control" min="1" max="31"  data-ng-model="day2"/>
+                             </div>
+                            <div class="col-sm-1"> 
+                                <input type="number" class="form-control" min="1" max="12"  data-ng-model="month2"/>
+                             </div>
+                            <div class="col-sm-2"> 
+                                <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year2"/>
+                             </div>
+                        </div>                                                                                                           
+                    </form>
+                  </div>
+                </div>
+             </div>
+                 <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                         <button type="submit" class="btn btn-primary" data-ng-click="createNewMontlyPayment()">{{mode}}</button>  
+                                      </div>                         
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+        </div>
+    </div>
+ </div>

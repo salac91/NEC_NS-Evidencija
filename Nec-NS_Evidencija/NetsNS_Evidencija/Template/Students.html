@@ -1,0 +1,129 @@
+﻿<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+              <div style="border-color:#FFFFFF" >                 
+                   <h3 style="color:#565656;"><b><i class="fa fa-male"></i> Pregled Igrača</b></h3> <br />            
+              </div>
+
+              <form>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                            <input type="text" class="form-control" placeholder="Traži igrača" data-ng-model="searchStudent">
+                        </div>      
+                    </div>
+             </form>
+
+              <div class="row">
+               <div class="col-lg-12">
+                <div class="table-responsive">
+                 <table class="table table-striped" style="border: 1px groove; border-color:#C2C2C2" >
+                   <thead>
+                     <tr style="background-color:#96C2EE" >
+                        <td><b data-ng-click="sortType = 'FirstName'; sortReverse = !sortReverse">
+                             Ime 
+                             <span data-ng-show="sortType == 'FirstName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'FirstName' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'LastName'; sortReverse = !sortReverse">
+                             Prezime 
+                             <span data-ng-show="sortType == 'LastName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'LastName' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                         <td><b data-ng-click="sortType = 'Email'; sortReverse = !sortReverse">
+                             Email 
+                             <span data-ng-show="sortType == 'Email' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Email' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b>
+                             Telefon 
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'PaymentType'; sortReverse = !sortReverse">
+                             Plaćanje  
+                             <span data-ng-show="sortType == 'PaymentType' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'PaymentType' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b>
+                             Popust                          
+                             </b></td>    
+                         <td></td>
+                         <td></td>                                          
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="student in model | orderBy:sortType:sortReverse | filter:searchStudent" data-ng-class="{'selected':$index == selectedRow}" data-ng-click="setClickedRow($index,student)">
+                         <td>{{student.FirstName}}</td>
+                         <td>{{student.LastName}}</td>
+                         <td>{{student.Email}}</td>
+                         <td>{{student.Telephone}}</td>
+                         <td>{{student.PaymentType}}</td>
+                         <td>{{student.Discount}}%</td>
+                         <td><a href="#!/studentDetails" data-ng-click="setStudentForDetails(student)"><u>Detalji</u></a></td>
+                         <td><button type="submit" class="btn btn-info" data-ng-click="deleteStudent(student.Student_Internal_Id)">Ukloni</button></td>                                              
+                     </tr>                   
+                   </tbody>
+               </table>   
+             </div>              
+           </div>
+        </div>
+                <div class="row">
+                   <div class="col-md-12">
+                      
+                   <div class="form-bottom" style="background-color:#FCFFFF; border: 1px solid; border-color:#C2C2C2">
+                    <form class="form-horizontal" role="form">   
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-1" for="Ime">Ime:</label>
+                            <div class="col-sm-5">                                                                               
+                              <input type="text" class="form-control" placeholder="Ime"  data-ng-model="new.Student.FirstName"/>
+                            </div>   
+                            <label class="control-label col-sm-1" for="Prezime">Prezime:</label>
+                            <div class="col-sm-5">                           
+                                <input type="text" class="form-control" placeholder="Prezime"  data-ng-model="new.Student.LastName"/>
+                            </div>                         
+                        </div>                    
+                        <div class="form-group">
+                             <label class="control-label col-sm-1" for="Email">Email:</label>
+                            <div class="col-sm-5"> 
+                                 <input type="text" class="form-control" placeholder="Email"  data-ng-model="new.Student.Email"/>
+                            </div>
+                             <label class="control-label col-sm-1" for="Telefon">Telefon:</label>
+                            <div class="col-sm-5"> 
+                                <input type="text" class="form-control" placeholder="Telefon"  data-ng-model="new.Student.Telephone"/>
+                            </div>
+                        </div>                  
+                       <div class="form-group">   
+                           <label class="control-label col-sm-1" for="Plaćanje">Plaćanje:</label>
+                           <div class="col-sm-5"> 
+                            <select class="form-control" data-ng-model="new.Student.PaymentType">
+                              <optgroup style="font-size:18px;" label="Plaćanje">
+                                <option value="Mesečno">Mesečno</option>
+                                <option value="Po satu">Po satu</option>
+                              </optgroup>
+                             </select>
+                               </div>
+                                <label class="control-label col-sm-1" for="Popust">Popust:</label>
+                             <div class="col-sm-5"> 
+                                <input type="text" class="form-control" placeholder="Popust"  data-ng-model="new.Student.Discount"/>
+                             </div>
+                           </div>                                                                                                 
+                      </form>
+                   </div>
+                 </div>
+               </div>
+
+                <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                        <button type="submit" class="btn btn-primary" data-ng-click="createNewStudent()">{{mode}}</button>   
+                                      </div>                         
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+        </div>
+    </div>
+ </div>

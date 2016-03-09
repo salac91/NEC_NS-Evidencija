@@ -1,0 +1,5 @@
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.Dto\bin\Debug\NEC-NS_Evidencija.Backend.Dto.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.Dto\bin\Debug\NEC-NS_Evidencija.Backend.Dto.pdb
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.Dto\obj\Debug\NEC-NS_Evidencija.Backend.Dto.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.Dto\obj\Debug\NEC-NS_Evidencija.Backend.Dto.pdb
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.Dto\obj\Debug\NEC-NS_Evidencija.Backend.Dto.csprojResolveAssemblyReference.cache

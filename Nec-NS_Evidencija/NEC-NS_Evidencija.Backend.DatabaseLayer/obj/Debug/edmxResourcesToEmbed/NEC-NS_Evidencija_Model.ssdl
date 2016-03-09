@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="COACH" EntityType="Model.Store.COACH" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MONTLYPAYMENTS" EntityType="Model.Store.MONTLYPAYMENTS" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PERSON" EntityType="Model.Store.PERSON" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STUDENT" EntityType="Model.Store.STUDENT" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="STUDENT_TRAINING" EntityType="Model.Store.STUDENT_TRAINING" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="sysdiagrams" EntityType="Model.Store.sysdiagrams" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TRAINING" EntityType="Model.Store.TRAINING" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_COACH_INHERITAN_PERSON" Association="Model.Store.FK_COACH_INHERITAN_PERSON">
+      <End Role="PERSON" EntitySet="PERSON" />
+      <End Role="COACH" EntitySet="COACH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MONTLYPA_RELATIONS_STUDENT" Association="Model.Store.FK_MONTLYPA_RELATIONS_STUDENT">
+      <End Role="STUDENT" EntitySet="STUDENT" />
+      <End Role="MONTLYPAYMENTS" EntitySet="MONTLYPAYMENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELATION_RELATIONS_STUDENT" Association="Model.Store.FK_RELATION_RELATIONS_STUDENT">
+      <End Role="STUDENT" EntitySet="STUDENT" />
+      <End Role="STUDENT_TRAINING" EntitySet="STUDENT_TRAINING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RELATION_RELATIONS_TRAINING" Association="Model.Store.FK_RELATION_RELATIONS_TRAINING">
+      <End Role="TRAINING" EntitySet="TRAINING" />
+      <End Role="STUDENT_TRAINING" EntitySet="STUDENT_TRAINING" />
+    </AssociationSet>
+    <AssociationSet Name="FK_STUDENT_INHERITAN_PERSON" Association="Model.Store.FK_STUDENT_INHERITAN_PERSON">
+      <End Role="PERSON" EntitySet="PERSON" />
+      <End Role="STUDENT" EntitySet="STUDENT" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="COACH">
+    <Key>
+      <PropertyRef Name="PERSON_ID" />
+    </Key>
+    <Property Name="PERSON_ID" Type="int" Nullable="false" />
+    <Property Name="COACH_INTERNAL_ID" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="PAYOFFRATE" Type="money" Nullable="false" />
+    <Property Name="PAYMENTRATE" Type="money" Nullable="false" />
+    <Property Name="PAYOFF" Type="money" />
+  </EntityType>
+  <EntityType Name="MONTLYPAYMENTS">
+    <Key>
+      <PropertyRef Name="MONTLYPAYMENT_ID" />
+    </Key>
+    <Property Name="MONTLYPAYMENT_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MONTLYPAYMENT_INTERNAL_ID" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="PERSON_ID" Type="int" Nullable="false" />
+    <Property Name="AMOUNT" Type="money" Nullable="false" />
+    <Property Name="STARTDATE" Type="datetime" Nullable="false" />
+    <Property Name="ENDDATE" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PERSON">
+    <Key>
+      <PropertyRef Name="PERSON_ID" />
+    </Key>
+    <Property Name="PERSON_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="FIRSTNAME" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="LASTNAME" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="EMAIL" Type="char" MaxLength="256" />
+    <Property Name="TELEPHONE" Type="char" Nullable="false" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="STUDENT">
+    <Key>
+      <PropertyRef Name="PERSON_ID" />
+    </Key>
+    <Property Name="PERSON_ID" Type="int" Nullable="false" />
+    <Property Name="STUDENT_INTERNAL_ID" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="PAYMENTTYPE" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="DISCOUNT" Type="numeric" Precision="8" Scale="2" />
+    <Property Name="IMAGE_URL" Type="char" MaxLength="256" />
+    <Property Name="PARENT_FIRST_NAME" Type="char" MaxLength="256" />
+    <Property Name="PARENT_LAST_NAME" Type="char" MaxLength="256" />
+    <Property Name="PARENTS_MAIL" Type="char" MaxLength="256" />
+    <Property Name="PARENTS_TELEPHONE" Type="char" MaxLength="256" />
+    <Property Name="BORN_DATE" Type="date" />
+    <Property Name="ADDRESS" Type="char" MaxLength="256" />
+    <Property Name="COUNTRY" Type="char" MaxLength="256" />
+    <Property Name="JMBG" Type="char" MaxLength="256" />
+    <Property Name="ToPay" Type="numeric" Scale="2" />
+  </EntityType>
+  <EntityType Name="STUDENT_TRAINING">
+    <Key>
+      <PropertyRef Name="PERSON_ID" />
+      <PropertyRef Name="TRAINING_ID" />
+    </Key>
+    <Property Name="PERSON_ID" Type="int" Nullable="false" />
+    <Property Name="TRAINING_ID" Type="int" Nullable="false" />
+    <Property Name="PAYMENTTYPE" Type="char" MaxLength="256" />
+    <Property Name="AMOUNT" Type="money" />
+    <Property Name="TRAININGQUALITY" Type="char" MaxLength="256" />
+    <Property Name="RELATIONSHIP" Type="char" MaxLength="256" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="128" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TRAINING">
+    <Key>
+      <PropertyRef Name="TRAINING_ID" />
+    </Key>
+    <Property Name="TRAINING_ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="PERSON_ID" Type="int" />
+    <Property Name="TRAINING_INTERNAL_ID" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="TRAININGTYPE" Type="int" Nullable="false" />
+    <Property Name="TRAININGTHEME" Type="char" Nullable="false" MaxLength="256" />
+    <Property Name="STARTDATE" Type="date" Nullable="false" />
+    <Property Name="DURATION" Type="float" />
+    <Property Name="NOTES" Type="char" MaxLength="256" />
+    <Property Name="TRAINING_QUALITY" Type="char" MaxLength="256" />
+    <Property Name="RELATIONSHIP" Type="char" MaxLength="256" />
+  </EntityType>
+  <Association Name="FK_COACH_INHERITAN_PERSON">
+    <End Role="PERSON" Type="Model.Store.PERSON" Multiplicity="1" />
+    <End Role="COACH" Type="Model.Store.COACH" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSON">
+        <PropertyRef Name="PERSON_ID" />
+      </Principal>
+      <Dependent Role="COACH">
+        <PropertyRef Name="PERSON_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MONTLYPA_RELATIONS_STUDENT">
+    <End Role="STUDENT" Type="Model.Store.STUDENT" Multiplicity="1" />
+    <End Role="MONTLYPAYMENTS" Type="Model.Store.MONTLYPAYMENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENT">
+        <PropertyRef Name="PERSON_ID" />
+      </Principal>
+      <Dependent Role="MONTLYPAYMENTS">
+        <PropertyRef Name="PERSON_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELATION_RELATIONS_STUDENT">
+    <End Role="STUDENT" Type="Model.Store.STUDENT" Multiplicity="1" />
+    <End Role="STUDENT_TRAINING" Type="Model.Store.STUDENT_TRAINING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="STUDENT">
+        <PropertyRef Name="PERSON_ID" />
+      </Principal>
+      <Dependent Role="STUDENT_TRAINING">
+        <PropertyRef Name="PERSON_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RELATION_RELATIONS_TRAINING">
+    <End Role="TRAINING" Type="Model.Store.TRAINING" Multiplicity="1" />
+    <End Role="STUDENT_TRAINING" Type="Model.Store.STUDENT_TRAINING" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRAINING">
+        <PropertyRef Name="TRAINING_ID" />
+      </Principal>
+      <Dependent Role="STUDENT_TRAINING">
+        <PropertyRef Name="TRAINING_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_STUDENT_INHERITAN_PERSON">
+    <End Role="PERSON" Type="Model.Store.PERSON" Multiplicity="1" />
+    <End Role="STUDENT" Type="Model.Store.STUDENT" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PERSON">
+        <PropertyRef Name="PERSON_ID" />
+      </Principal>
+      <Dependent Role="STUDENT">
+        <PropertyRef Name="PERSON_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

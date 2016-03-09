@@ -1,0 +1,193 @@
+﻿<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+
+              <div class="border-color:#9BCEEE">
+                   <h3 style="color:#565656;"><b><i class="fa fa-users"></i> Zakazivanje Treninga</b></h3> <br />
+              </div>
+
+              <form>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                            <input type="text" class="form-control" placeholder="Traži trening" data-ng-model="searchTraining">
+                        </div>      
+                    </div>
+             </form>
+
+              <div class="row">
+               <div class="col-md-12">
+                <div class="table-responsive">
+                 <table class="table table-striped" style="border: 1px groove; border-color:#C2C2C2">
+                   <thead>
+                     <tr style="background-color:#96C2EE">
+                        <td><b data-ng-click="sortType = 'TrainingType'; sortReverse = !sortReverse">
+                             Tip  
+                             <span data-ng-show="sortType == 'TrainingType' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'TrainingType' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'TrainingTheme'; sortReverse = !sortReverse">
+                             Tema 
+                             <span data-ng-show="sortType == 'TrainingTheme' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'TrainingTheme' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                         <td><b data-ng-click="sortType = 'StartDate'; sortReverse = !sortReverse">
+                             Datum početka 
+                             <span data-ng-show="sortType == 'StartDate' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'StartDate' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td></td>
+                          <td><b data-ng-click="sortType = 'Duration'; sortReverse = !sortReverse">
+                             Trajanje 
+                             <span data-ng-show="sortType == 'Duration' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Duration' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>                        
+                          <td><b>
+                             Kvalitet                             
+                            </b></td>
+                          <td><b>
+                             Odnos                             
+                            </b></td>
+                          <td><b data-ng-click="sortType = 'Coach.LastName'; sortReverse = !sortReverse">
+                             Trener
+                             <span data-ng-show="sortType == 'Coach.LastName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Coach.LastName' && sortReverse" class="fa fa-caret-up"></span>                            
+                            </b></td>
+                         <td><b>
+                             Beleške                             
+                            </b></td> 
+                         <td></td>                                                          
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="training in model | orderBy:sortType:sortReverse | filter:searchTraining " data-ng-class="{'selected':$index == selectedRow}" data-ng-click="setClickedRow($index,training)">
+                         <td>{{training.TrainingTypeShow}}</td>
+                         <td>{{training.TrainingTheme}}</td>
+                         <td>{{training.DateShow}}</td>
+                         <td></td>
+                          <td>{{training.Duration}} h</td>
+                          <td>{{training.TrainingQuality}}</td>
+                          <td>{{training.Relationship}}</td>                      
+                          <td>{{training.Coach.FirstName}} {{training.Coach.LastName}}</td>
+                          <td>{{training.Notes}}</td>
+                         <td><button type="submit" class="btn btn-info" data-ng-click="deleteTraining(training.Training_Internal_Id)">Ukloni</button></td>                        
+                     </tr>                                                                                                 
+                   </tbody>
+                 </table>
+                </div>             
+            </div>
+          </div>
+
+                 <div class="row">
+                   <div class="col-md-12">                     
+                     <div class="form-bottom" style="background-color:#FCFFFF; border: 1px groove; border-color:#C2C2C2"">
+                          <form class="form-horizontal" role="form">   
+                               <div class="form-group"> 
+                                   <label class="control-label col-sm-1" for="Tip">Tip:</label>
+                                    <div class="col-sm-5">                                                                                                                  
+                                         <select class="form-control" data-ng-model="new.Training.TrainingType">  
+                                           <optgroup style="font-size:18px;" label="Tip">                            
+                                                 <option  value="1">ind.</option>
+                                                 <option  value="2">dvoje</option>
+                                                 <option  value="3">troje</option>
+                                                 <option  value="4">četvoro</option>
+                                            </optgroup>
+                                       </select>
+                                    </div>   
+                                    <label class="control-label col-sm-1" for="Tema">Tema:</label>
+                                    <div class="col-sm-5">                           
+                                        <input type="text" class="form-control" placeholder="Tema"  data-ng-model="new.Training.TrainingTheme"/>
+                                     </div>      
+                               </div>
+
+                              <div class="form-group">
+                                  <label class="control-label col-sm-1" for="Od">Datum:</label>
+                                  <div class="col-sm-1"> 
+                                    <input type="number" class="form-control" min="1" max="31"  data-ng-model="day1"/>
+                                </div>
+                            <div class="col-sm-1"> 
+                                <input type="number" class="form-control" min="1" max="12"  data-ng-model="month1"/>
+                             </div>
+                            <div class="col-sm-2"> 
+                                <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year1"/>
+                             </div>
+                             <div class="col-sm-1"> 
+                             </div> 
+                                    <label class="control-label col-sm-1" for="Trajanje">Trajanje:</label>
+                                    <div class="col-sm-5">                           
+                                         <input type="text"class="form-control"  placeholder="Trajanje"  data-ng-model="new.Training.Duration"/>
+                                     </div> 
+                              </div>
+
+                              <div class="form-group">
+                                   <label class="control-label col-sm-1" for="Beleške">Beleške:</label>
+                                    <div class="col-sm-5">                                                                               
+                                         <input type="text" class="form-control" placeholder="Beleške"  data-ng-model="new.Training.Notes"/>
+                                    </div>   
+                                    <label class="control-label col-sm-1" for="Treneri">Treneri:</label>
+                                    <div class="col-sm-5">                           
+                                        <select class="form-control" data-ng-model="new.Training.Coach">   
+                                            <optgroup style="font-size:18px;" label="Treneri">                           
+                                                 <option data-ng-repeat="coach in coaches" value={{coach.Coach_Internal_Id}}>{{coach.FirstName}} {{coach.LastName}}</option>
+                                             </optgroup>
+                                         </select>
+                                     </div> 
+                              </div>
+
+                               <div class="form-group"> 
+                                   <label class="control-label col-sm-1" for="Kvalitet">Kvalitet:</label>
+                                    <div class="col-sm-5">                                                                               
+                                        <input type="text" class="form-control" placeholder="Kvalitet treninga"  data-ng-model="new.Training.TrainingQuality"/>
+                                    </div>   
+                                    <label class="control-label col-sm-1" for="Odnos">Odnos:</label>
+                                    <div class="col-sm-5">                           
+                                        <input type="text" class="form-control" placeholder="Odnos"  data-ng-model="new.Training.Relationship"/>
+                                     </div>      
+                               </div>
+
+                              <div class="form-group">
+                                   <label class="control-label col-sm-1" for="Beleške">Igrači:</label>
+                                   <div class ="col-sm-5">
+                                       <select class="form-control" data-ng-model="new.StudentId">  
+                                           <optgroup style="font-size:18px;" label="Igrači">                            
+                                                 <option data-ng-repeat="student in students" value={{student.Student_Internal_Id}}>{{student.FirstName}} {{student.LastName}}</option>
+                                            </optgroup>
+                                       </select>
+                                   </div>
+                                  <div class ="col-sm-1">
+                                    <button type="submit" class="btn btn-success" data-ng-click="addStudentForTraining()">+</button>
+                                  </div>                                
+                              </div>
+
+                              <div class="form-group">
+                                  <div class ="col-sm-1"></div> 
+                                  <div class ="col-sm-5">
+                                    <textarea class="form-control" name="studentsTextArea" style="font-size:18px; background:white;" readonly rows="8" data-ng-model="textModel"></textarea>  
+                                  </div>                                  
+                              </div>  
+                              <div class="form-group">
+                                  <div class ="col-sm-1"></div> 
+                                  <div class ="col-sm-1">
+                                   <button type="submit" class="btn btn-danger" data-ng-click="removeStudentsForTraining()"><i class="fa fa-times"></i></button>       
+                                  </div>                                  
+                              </div>                                             
+                          </form>
+                      </div>
+                   </div>
+                </div>
+                 <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                         <button type="submit" class="btn btn-primary" data-ng-click="createNewTraining()">{{button_mode}}</button>   
+                                      </div>                         
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+        </div>
+    </div>
+ </div>

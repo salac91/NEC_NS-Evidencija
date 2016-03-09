@@ -1,0 +1,97 @@
+﻿<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+              <div style="border-color:#FFFFFF" >                 
+                   <h2 style="color:#565656;"><b><i class="fa fa-clock-o"></i> Plaćanje po satu</b></h2> <br />            
+              </div>
+                  
+                <div class="row">
+                   <div class="col-md-12"> 
+                       <h2>[ Igrači ]</h2>                                        
+                    <div class="form-bottom" style="background-color:#FCFFFF; border: 1px solid; border-color:#C2C2C2">
+                    <form class="form-horizontal" role="form">                       
+                        <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Igrač">Igrač:</label>
+                             <div class="col-sm-4"> 
+                                <select class="form-control" data-ng-model="StudentForPaymentPerHour">
+                                   <optgroup style="font-size:18px;" label="Igrači">
+                                     <option data-ng-repeat="student in StudentsPaymentPerHour"  value={{student.Student_Internal_Id}} data-ng-click="findStudent()">{{student.FirstName}} {{student.LastName}}</option>
+                                    </optgroup >
+                                </select>
+                            </div>                       
+                        </div>
+                         <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Duguje">Duguje:</label>
+                             <div class="col-sm-4">                                                        
+                                <input type="text" class="form-control" readonly data-ng-model="StudentForPaymentPerHourTemp.ToPay"/>
+                            </div>                                                                 
+                        </div>
+                         <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Dodaj">Dodaj:</label>
+                             <div class="col-sm-4">                                                        
+                                <input type="number" class="form-control" data-ng-model="AddToPay"/>
+                            </div>                                                                 
+                        </div>                      
+                        <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Platio">Platio:</label>
+                             <div class="col-sm-4">                                                        
+                                <input type="number" class="form-control" data-ng-model="StudentPaid"/>
+                            </div>
+                            <div class="col-sm-2">                         
+                                <button type="submit" class="btn btn-primary" data-ng-click="payDebt()">Potvrdi</button>   
+                            </div>                                        
+                        </div>  
+                          <div class="form-group">  
+                             
+                                <label class="control-label col-sm-3" for="Duguje"> - Dugovanje je bez popusta</label>
+                             
+                          </div>                                                                                                                                               
+                      </form>
+                   </div>
+                 </div>
+               </div>
+
+                <div class="row">
+                   <div class="col-md-12"> 
+                        <h2>[ Treneri ]</h2>                                        
+                    <div class="form-bottom" style="background-color:#FCFFFF; border: 1px solid; border-color:#C2C2C2">
+                    <form class="form-horizontal" role="form">  
+                        <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Trener">Trener:</label>
+                             <div class="col-sm-4"> 
+                                <select class="form-control" data-ng-model="TrainerForPayOffPerHour">
+                                   <optgroup style="font-size:18px;" label="Treneri">
+                                     <option data-ng-repeat="trainer in TrainersForPayOffPerHour"  value={{trainer.Coach_Internal_Id}} data-ng-click="findTrainer()">{{trainer.FirstName}} {{trainer.LastName}}</option>
+                                    </optgroup >
+                                </select>
+                            </div>                       
+                        </div>
+                         <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Zaradio">Zaradio:</label>
+                             <div class="col-sm-4">                                                        
+                                <input type="text" class="form-control" readonly data-ng-model="TrainerForPayOffPerHourTemp.PayOff"/>
+                            </div>                                             
+                        </div>
+                        <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Dodaj">Dodaj:</label>
+                             <div class="col-sm-4">                                                        
+                                <input type="number" class="form-control" data-ng-model="AddToGetPaid"/>
+                            </div>                                                                 
+                        </div>  
+                        <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Isplata">Dobio:</label>
+                             <div class="col-sm-4">                                                        
+                                <input type="number" class="form-control" data-ng-model="PaidTrainer"/>
+                            </div>
+                            <div class="col-sm-2">                         
+                                <button type="submit" class="btn btn-primary" data-ng-click="getPaid()">Potvrdi</button>   
+                            </div>                                             
+                        </div>                                                                                                                                                
+                      </form>
+                   </div>
+                 </div>
+               </div>
+             
+        </div>
+    </div>
+ </div>

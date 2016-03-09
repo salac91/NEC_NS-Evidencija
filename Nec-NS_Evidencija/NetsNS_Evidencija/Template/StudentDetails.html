@@ -1,0 +1,138 @@
+﻿    <div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+                <div>                 
+                   <h3 style="color:#565656;"><b>{{StudentDetails.FirstName}} {{StudentDetails.LastName}}</b></h3> <br />                                              
+                </div>
+
+            <div class="row">
+               <div class="col-md-12">
+                 <div class="table-responsive">
+                     <table class='table borderless'>
+                          <tbody>
+                              <tr class='borderless'>
+                                <td><img src={{StudentDetails.ImageUrl}} style="width: 270px; height: 320px"></td>
+                                <td></td>
+                              </tr>
+                              <tr class='borderless'>
+                                 <td><b>Ime:  {{StudentDetails.FirstName}}</b></td>                
+                                 <td><b>Prezime:  {{StudentDetails.LastName}}</b></td>                                                   
+                              </tr>
+                              <tr class='borderless'>
+                                 <td><b>Matični broj:  {{StudentDetails.Jmbg}}</b></td>                                               
+                                 <td><b>Datum rođenja:  {{dateToShow}}</b></td>                                                    
+                              </tr>
+                              <tr class='borderless'>
+                                <td><b>Adresa:  {{StudentDetails.Address}}</b></td>
+                                <td><b>Država:  {{StudentDetails.Country}}</b></td>                                                                                               
+                              </tr>
+                              <tr class='borderless'>
+                                <td><b>Email:  {{StudentDetails.Email}}</b></td>                
+                                <td><b>Telefon:  {{StudentDetails.Telephone}}</b></td>                                                   
+                              </tr>
+                            <tr class='borderless'>
+                               <td><b>Ime roditelja:  {{StudentDetails.ParentFirstName}}</b></td>                
+                               <td><b>Prezime roditelja:  {{StudentDetails.ParentLastName}}</b></td>                                                   
+                            </tr>   
+                            <tr class='borderless'>
+                               <td><b>Email roditelja:  {{StudentDetails.ParentsMail}}</b></td>                
+                               <td><b>Telefon roditelja:  {{StudentDetails.ParentsTelephone}}</b></td>                                                   
+                            </tr>
+                            <tr class='borderless'>
+                               <td><b>Plaćanje: {{StudentDetails.PaymentType}}</b></td>                
+                               <td><b>Popust: {{StudentDetails.Discount}}%</b></td>                                                   
+                             </tr>
+                            <tr class='borderless'>
+                               <td><a data-ng-click="showFormF()"><u>{{text}}</u></a></td>                                                                                             
+                            </tr>                        
+                        </tbody>
+                   </table>   
+                </div>              
+             </div>
+           </div>
+
+              <div class="row" data-ng-show="showForm">
+                   <div class="col-md-12">
+                      
+                   <div class="form-bottom" style="background-color:#FCFFFF; border: 1px solid; border-color:#C2C2C2">
+                    <form class="form-horizontal" role="form">  
+                        <div class="form-group">  
+                            <label class="control-label col-sm-2" for="JMBG"><u>Podaci o studentu:</u></label>
+                        </div>
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-1" for="JMBG">Jmbg:</label>
+                            <div class="col-sm-5">                                                                               
+                              <input type="text" class="form-control" placeholder="JMBG"  data-ng-model="new.StudentDetailsNew.Jmbg"/>
+                            </div>   
+                            <label class="control-label col-sm-1" for="Adresa">Adresa:</label>
+                            <div class="col-sm-5">                           
+                                <input type="text" class="form-control" placeholder="Adresa"  data-ng-model="new.StudentDetailsNew.Address"/>
+                            </div>                         
+                        </div>                    
+                        <div class="form-group">
+                             <label class="control-label col-sm-1" for="Država">Država:</label>
+                            <div class="col-sm-5"> 
+                                 <input type="text" class="form-control" placeholder="Država"  data-ng-model="new.StudentDetailsNew.Country"/>
+                            </div>
+                             <label class="control-label col-sm-1" for="Datum_rođenja">Rođ:</label>
+                             <div class="col-sm-1"> 
+                                    <input type="number" class="form-control" min="1" max="31"  data-ng-model="day1"/>
+                                </div>
+                            <div class="col-sm-1"> 
+                                <input type="number" class="form-control" min="1" max="12"  data-ng-model="month1"/>
+                             </div>
+                            <div class="col-sm-2"> 
+                                <input type="number" class="form-control" min="2000" max="2100"  data-ng-model="year1"/>
+                             </div>
+                        </div>  
+                         <div class="form-group"> 
+                            <label class="control-label col-sm-1" for="Slika:">Slika:</label>
+                            <div class="col-sm-5">                                                                               
+                                  <input type="file" id="file" name="file"  onchange="angular.element(this).scope().setFile(this)" accept="image/*" />                             
+                            </div>                                                                                                     
+                       </div>   
+                        <div class="form-group">  
+                            <label class="control-label col-sm-2" for="JMBG"><u>Podaci o roditelju:</u></label>
+                        </div>                
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-1" for="Ime_roditelja">Ime:</label>
+                            <div class="col-sm-5">                                                                               
+                              <input type="text" class="form-control" placeholder="Ime roditelja"  data-ng-model="new.StudentDetailsNew.ParentFirstName"/>
+                            </div>   
+                            <label class="control-label col-sm-1" for="Prezime_roditelja">Prezime:</label>
+                            <div class="col-sm-5">                           
+                                <input type="text" class="form-control" placeholder="Prezime roditelja"  data-ng-model="new.StudentDetailsNew.ParentLastName"/>
+                            </div>                         
+                        </div>     
+                        <div class="form-group"> 
+                            <label class="control-label col-sm-1" for="R. Email:">Email:</label>
+                            <div class="col-sm-5">                                                                               
+                              <input type="text" class="form-control" placeholder="Email roditelja"  data-ng-model="new.StudentDetailsNew.ParentsMail"/>
+                            </div>   
+                            <label class="control-label col-sm-1" for="R. Telefon">Telefon:</label>
+                            <div class="col-sm-5">                           
+                                <input type="text" class="form-control" placeholder="Telefon roditelja"  data-ng-model="new.StudentDetailsNew.ParentsTelephone"/>
+                            </div>                         
+                       </div>                                                                                                            
+                    </form>
+                 </div>
+               </div>
+             </div>
+
+                <div class="row" data-ng-show="showForm">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                        <button type="submit" class="btn btn-primary" data-ng-click="updateStudent()">Izmeni</button>   
+                                      </div>                         
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+
+            </div>
+        </div>
+    </div>

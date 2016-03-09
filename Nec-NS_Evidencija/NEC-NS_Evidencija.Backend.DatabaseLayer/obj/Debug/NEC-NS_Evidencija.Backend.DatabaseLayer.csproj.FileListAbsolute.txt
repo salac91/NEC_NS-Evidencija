@@ -1,0 +1,10 @@
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.dll.config
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.pdb
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\EntityFramework.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\EntityFramework.xml
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\obj\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.dll
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\obj\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.pdb
+C:\Users\salac\documents\visual studio 2012\Projects\NetsNS_Evidencija\NEC-NS_Evidencija.Backend.DatabaseLayer\obj\Debug\NEC-NS_Evidencija.Backend.DatabaseLayer.csprojResolveAssemblyReference.cache

@@ -1,0 +1,124 @@
+﻿<div class="top-content">	
+        <div class="inner-bg" style="background-color:#ffffff;">
+            <div class="container">
+
+              <div class="border-color:#9BCEEE">
+                   <h3 style="color:#565656;"><b><i class="fa fa-male"></i> Pregled Trenera</b></h3>  <br />
+              </div>
+
+              <form>
+                 <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                            <input type="text" class="form-control" placeholder="Traži trenera" data-ng-model="searchCoach">
+                        </div>      
+                    </div>
+             </form>
+
+              <div class="row">
+               <div class="col-md-12">
+                <div class="table-responsive">
+                 <table class="table table-striped" style="border: 1px groove; border-color:#C2C2C2">
+                   <thead>
+                     <tr style="background-color:#96C2EE">
+                        <td><b data-ng-click="sortType = 'FirstName'; sortReverse = !sortReverse">
+                             Ime 
+                             <span data-ng-show="sortType == 'FirstName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'FirstName' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'LastName'; sortReverse = !sortReverse">
+                             Prezime 
+                             <span data-ng-show="sortType == 'LastName' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'LastName' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                         <td><b data-ng-click="sortType = 'Email'; sortReverse = !sortReverse">
+                             Email 
+                             <span data-ng-show="sortType == 'Email' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'Email' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b>
+                             Telefon 
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'PayOffRate'; sortReverse = !sortReverse">
+                             Isplata 
+                             <span data-ng-show="sortType == 'PayOffRate' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'PayOffRate' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>
+                          <td><b data-ng-click="sortType = 'PaymentRate'; sortReverse = !sortReverse">
+                             Naplata 
+                             <span data-ng-show="sortType == 'PaymentRate' && !sortReverse" class="fa fa-caret-down"></span>
+                             <span data-ng-show="sortType == 'PaymentRate' && sortReverse" class="fa fa-caret-up"></span>
+                             </b></td>       
+                         <td></td>               
+                     </tr>
+                   </thead>
+                   <tbody>
+                     <tr data-ng-repeat="coach in model | orderBy:sortType:sortReverse | filter:searchCoach" data-ng-class="{'selected':$index == selectedRow}" data-ng-click="setClickedRow($index,coach)">
+                         <td>{{coach.FirstName}}</td>
+                         <td>{{coach.LastName}}</td>
+                         <td>{{coach.Email}}</td>
+                          <td>{{coach.Telephone}}</td>
+                          <td>€ {{coach.PayOffRate}}</td>
+                          <td>€ {{coach.PaymentRate}}</td>
+                         <td><button type="submit" class="btn btn-info" data-ng-click="deleteCoach(coach.Coach_Internal_Id)">Ukloni</button></td>                        
+                     </tr>                   
+                   </tbody>
+               </table>  
+             </div>               
+            </div>
+          </div>
+
+              <div class="row">
+                 <div class="col-md-12">
+                   <div class="form-bottom" style="background-color:#FCFFFF; border: 1px groove; border-color:#C2C2C2">
+                    <form class="form-horizontal" role="form">  
+                        <div class="form-group">
+                            <label class="control-label col-sm-1" for="Ime">Ime:</label>
+                            <div class="col-sm-5">      
+                                <input type="text"  class="form-control" placeholder="Ime"  data-ng-model="new.Coach.FirstName"/>
+                             </div>
+                            <label class="control-label col-sm-1" for="Prezime">Prezime:</label>
+                            <div class="col-sm-5">  
+                                <input type="text" class="form-control" placeholder="Prezime"  data-ng-model="new.Coach.LastName"/>
+                            </div>
+                        </div>                      
+                       <div class="form-group"> 
+                           <label class="control-label col-sm-1" for="Email">Email:</label> 
+                           <div class="col-sm-5">  
+                                <input type="text" class="form-control" placeholder="Email"  data-ng-model="new.Coach.Email"/>
+                           </div>
+                           <label class="control-label col-sm-1" for="Telefon">Telefon:</label> 
+                           <div class="col-sm-5">  
+                                 <input type="text" class="form-control" placeholder="Telefon"  data-ng-model="new.Coach.Telephone"/>
+                           </div>
+                        </div>                      
+                         <div class="form-group"> 
+                             <label class="control-label col-sm-1" for="Isplata">Isplata:</label> 
+                             <div class="col-sm-5">   
+                                <input type="text" class="form-control" placeholder="Isplata"  data-ng-model="new.Coach.PayOffRate"/>
+                             </div>
+                             <label class="control-label col-sm-1" for="Naplata">Naplata:</label> 
+                             <div class="col-sm-5">   
+                                 <input type="text" class="form-control" placeholder="Naplata"  data-ng-model="new.Coach.PaymentRate"/>
+                             </div>
+                        </div>
+                    </form>
+                   </div>
+                  </div>
+               </div>
+                 <div class="row">
+                   <div class="col-md-12">
+                       <div class="form-bottom" style="background-color:#ffffff;">
+                             <form class="form-horizontal" role="form">
+                                 <div class="form-group">    
+                                     <div class="col-sm-2">                         
+                                         <button type="submit" class="btn btn-primary" data-ng-click="createNewCoach()">{{mode}}</button>   
+                                      </div>                         
+                                    </div>  
+                              </form>
+                         </div>
+                     </div>
+               </div>
+        </div>
+    </div>
+ </div>
